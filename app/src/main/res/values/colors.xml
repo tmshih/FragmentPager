@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Common -->
+    <color name="appCommonRootBackground">#FF000000</color>
+    <color name="appCommonSubPageBackground">#FFF3F3F3</color>
 </resources>

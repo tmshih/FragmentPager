@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transformerExampleRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appCommonSubPageBackground"
+    tools:context=".page.transformer.ExampleFragment">
+
+    <TextView
+        android:id="@+id/transformerExampleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Example"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/transformerExampleNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="10dp"
+        android:text="Next" />
+
+</FrameLayout>
