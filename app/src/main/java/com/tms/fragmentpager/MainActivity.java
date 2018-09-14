@@ -5,7 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the sections.
-     * We use a {@link FragmentPagerAdapter} derivative, which will keep every loaded fragment in memory.
+     * We use a {@link FragmentStatePagerAdapter} derivative, which will keep every loaded fragment in memory.
      * If this becomes too memory intensive, it may be best to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -178,9 +178,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the sections/tabs/pages.
+     * A {@link FragmentStatePagerAdapter} that returns a fragment corresponding to one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+    public class SectionsPagerAdapter extends FragmentStatePagerAdapter implements ViewPager.OnPageChangeListener {
         public static final int PAGE_HOME = 0;
         public static final int PAGE_INITIALIZATION = 1;
         public static final int PAGE_TRANSFORMER = 2;
@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             mPages[position][INDEX_PAGE_FRAGMENT] = fragment;
 
+            Log.d(TAG, "getItem(" + position + "): " + fragment);
             return fragment;
         }
 
