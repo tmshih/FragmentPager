@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
 
 import com.tms.fragmentpager.R;
 
@@ -41,42 +38,11 @@ public class SwipeableViewPager extends ViewPager {
     }
 
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
+    public boolean arrowScroll(int direction) {
         if (isSwipeable) {
-            return super.dispatchKeyEvent(event);
+            return super.arrowScroll(direction);
         }
-        if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_LEFT) {
-            View focusView = findFocus();
-            if (focusView instanceof EditText) {
-                EditText editText = (EditText) focusView;
-                if (!editText.isEnabled()) {
-                    return false;
-                }
-                if (editText.getSelectionStart() == editText.getSelectionEnd()
-                        && editText.getSelectionStart() <= 0) {
-                    return false;
-                }
-                return super.dispatchKeyEvent(event);
-            } else {
-                return false;
-            }
-        } else if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_RIGHT) {
-            View focusView = findFocus();
-            if (focusView instanceof EditText) {
-                EditText editText = (EditText) focusView;
-                if (!editText.isEnabled()) {
-                    return false;
-                }
-                if (editText.getSelectionStart() == editText.getSelectionEnd()
-                        && editText.getSelectionStart() >= editText.getText().length()) {
-                    return false;
-                }
-                return super.dispatchKeyEvent(event);
-            } else {
-                return false;
-            }
-        }
-        return super.dispatchKeyEvent(event);
+        return (direction == FOCUS_LEFT || direction == FOCUS_RIGHT);
     }
 
     @Override
